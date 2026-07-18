@@ -1,0 +1,1 @@
+export { TrendBoard } from './TrendBoard'

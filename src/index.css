@@ -1,0 +1,28 @@
+@import 'tailwindcss';
+
+/* 다크 모드를 class 기반으로 전환: `.dark` 조상이 있으면 `dark:` 유틸리티가 적용된다.
+   (기본값인 prefers-color-scheme 대신 수동 토글을 쓰기 위함 — app/theme/useApplyTheme가 <html>에 .dark를 토글) */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*
+ * Tailwind v4는 별도 tailwind.config.js / postcss.config.js 없이
+ * @tailwindcss/vite 플러그인 + 이 한 줄(@import)로 동작한다.
+ * 디자인 토큰은 아래 @theme 블록에서 정의하면 유틸리티 클래스로 노출된다.
+ */
+@theme {
+  --font-sans: 'Inter', system-ui, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: ui-monospace, Consolas, monospace;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  color-scheme: light dark;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
