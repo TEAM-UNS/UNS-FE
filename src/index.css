@@ -150,6 +150,24 @@
   --z-modal: 1300; /* 모달 · 다이얼로그 · 드로어 */
   --z-popover: 1400; /* 팝오버 · 툴팁 (모달 위에도 뜰 수 있음) */
   --z-toast: 1500; /* 토스트 · 알림 (항상 최상단) */
+
+  /* ── Motion: Easing (곡선) ────────────────────────────────────
+     `--ease-*` 네임스페이스 → ease-{name} 유틸리티로 자동 노출된다.
+     Figma엔 motion 스펙이 없어 코드가 소유하는 토큰(= 앱 표준).
+     standard=기본 상태 전환(hover·색), emphasized=강조·큰 이동,
+     decelerate=진입(빠르게 들어와 감속), accelerate=퇴장(가속해 사라짐). */
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --ease-emphasized: cubic-bezier(0.3, 0, 0, 1);
+  --ease-decelerate: cubic-bezier(0, 0, 0.2, 1);
+  --ease-accelerate: cubic-bezier(0.4, 0, 1, 1);
+
+  /* ── Motion: Duration (시간) ──────────────────────────────────
+     duration은 Tailwind v4 테마 네임스페이스가 아니라서(z-index와 동일) 여기 값은
+     CSS 변수로만 노출되고, 명명 유틸리티(duration-fast 등)는 @utility에서 만든다.
+     (Tailwind 기본 duration-<number>는 그대로 유효; 아래는 시맨틱 속도 전용) */
+  --duration-fast: 150ms; /* hover·색 전환 등 작은 상태 변화 */
+  --duration-normal: 250ms; /* 드롭다운·아코디언·토글 */
+  --duration-slow: 400ms; /* 모달·드로어·페이지 전환 */
 }
 
 /* z-index 명명 유틸리티 — @theme의 --z-* 토큰을 z-{name} 클래스로 감싼다.
@@ -177,6 +195,17 @@
 }
 @utility z-toast {
   z-index: var(--z-toast);
+}
+
+/* duration 명명 유틸리티 — @theme의 --duration-* 토큰을 duration-{name} 클래스로 감싼다. */
+@utility duration-fast {
+  transition-duration: var(--duration-fast);
+}
+@utility duration-normal {
+  transition-duration: var(--duration-normal);
+}
+@utility duration-slow {
+  transition-duration: var(--duration-slow);
 }
 
 html,
