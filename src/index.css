@@ -10,7 +10,9 @@
  * 디자인 토큰은 아래 @theme 블록에서 정의하면 유틸리티 클래스로 노출된다.
  */
 @theme {
-  --font-sans: 'Inter', system-ui, 'Segoe UI', Roboto, sans-serif;
+  --font-sans:
+    'Pretendard', 'Pretendard Variable', system-ui, 'Segoe UI', Roboto,
+    sans-serif;
   --font-mono: ui-monospace, Consolas, monospace;
 
   /* ── Color (다크 테마 기준) ─────────────────────────────────
@@ -60,6 +62,52 @@
   --color-chart-cyan: #12e1f9;
   --color-chart-blue: #508aff;
   --color-chart-violet: #aa5ef1;
+
+  /* ── Typography (Pretendard) ────────────────────────────────
+     size / line-height / font-weight 를 번들한 시맨틱 텍스트 스타일.
+     Display·Heading = lh 1.2, Body = lh 1.5. bold가 필요하면 font-semibold로 조합. */
+
+  /* Display — SemiBold 600 */
+  --text-display-lg: 64px;
+  --text-display-lg--line-height: 1.2;
+  --text-display-lg--font-weight: 600;
+  --text-display-md: 48px;
+  --text-display-md--line-height: 1.2;
+  --text-display-md--font-weight: 600;
+  --text-display-sm: 36px;
+  --text-display-sm--line-height: 1.2;
+  --text-display-sm--font-weight: 600;
+
+  /* Heading — Bold 700 */
+  --text-h1: 32px;
+  --text-h1--line-height: 1.2;
+  --text-h1--font-weight: 700;
+  --text-h2: 24px;
+  --text-h2--line-height: 1.2;
+  --text-h2--font-weight: 700;
+  --text-h3: 20px;
+  --text-h3--line-height: 1.2;
+  --text-h3--font-weight: 700;
+  --text-h4: 16px;
+  --text-h4--line-height: 1.2;
+  --text-h4--font-weight: 700;
+  --text-h5: 14px;
+  --text-h5--line-height: 1.2;
+  --text-h5--font-weight: 700;
+
+  /* Body — Regular 400 (bold는 font-semibold로) */
+  --text-body-lg: 18px;
+  --text-body-lg--line-height: 1.5;
+  --text-body-lg--font-weight: 400;
+  --text-body-md: 16px;
+  --text-body-md--line-height: 1.5;
+  --text-body-md--font-weight: 400;
+  --text-body-sm: 14px;
+  --text-body-sm--line-height: 1.5;
+  --text-body-sm--font-weight: 400;
+  --text-body-xs: 12px;
+  --text-body-xs--line-height: 1.5;
+  --text-body-xs--font-weight: 400;
 }
 
 html,

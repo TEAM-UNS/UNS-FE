@@ -1,5 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+// Pretendard 가변 폰트 자체호스팅 (외부 CDN 요청 없이 Vite가 번들)
+import 'pretendard/dist/web/variable/pretendardvariable.css'
 import './index.css'
 import { App } from '@/app/App'
 import { initSentry } from '@/app/observability/sentry'
