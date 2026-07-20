@@ -121,6 +121,62 @@
      Tailwind v4 기본값(--spacing: 0.25rem = 4px)과 동일하므로 별도 토큰 없이
      기본 유틸리티를 그대로 쓴다: p-1=4 p-2=8 p-3=12 p-4=16 p-5=20 p-6=24
      p-8=32 p-9=36 p-12=48 (gap-·m-·w-·h- 등도 동일). */
+
+  /* ── Shadow / Elevation ──────────────────────────────────────
+     `--shadow-*` 네임스페이스 → shadow-{name} 유틸리티로 노출된다.
+     다크 서피스는 대비가 낮아 Tailwind 기본 그림자(라이트용, 흐림)가 잘 안 보이므로
+     검정 불투명도를 높여 재튜닝했다. `--shadow-*: initial`로 기본 스케일을 지운 뒤
+     xs→xl 5단계만 남긴다. (앱 튜닝값 — Figma Elevation 확정 시 대조/보정) */
+  --shadow-*: initial;
+  --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.24);
+  --shadow-sm:
+    0 2px 4px -1px rgb(0 0 0 / 0.28), 0 1px 2px -1px rgb(0 0 0 / 0.24);
+  --shadow-md:
+    0 4px 8px -2px rgb(0 0 0 / 0.32), 0 2px 4px -2px rgb(0 0 0 / 0.28);
+  --shadow-lg:
+    0 12px 20px -4px rgb(0 0 0 / 0.38), 0 4px 8px -4px rgb(0 0 0 / 0.32);
+  --shadow-xl:
+    0 24px 32px -8px rgb(0 0 0 / 0.44), 0 8px 12px -6px rgb(0 0 0 / 0.38);
+
+  /* ── z-index (레이어링 스케일) ────────────────────────────────
+     z-index는 Tailwind v4의 테마 네임스페이스가 아니라서 여기 값은 CSS 변수로만
+     노출된다. 명명 유틸리티(z-modal 등)는 @theme 블록 밖 @utility에서 생성한다.
+     값 사이 간격(100/1000대)은 추후 중간 레이어 삽입 여지를 남긴 것. */
+  --z-base: 0; /* 기본 문서 흐름 */
+  --z-raised: 10; /* 살짝 띄운 요소 (hover된 카드 등) */
+  --z-dropdown: 1000; /* 드롭다운 · 셀렉트 메뉴 */
+  --z-sticky: 1100; /* sticky 헤더 · 툴바 */
+  --z-overlay: 1200; /* 모달 뒤 딤(dim) 오버레이 */
+  --z-modal: 1300; /* 모달 · 다이얼로그 · 드로어 */
+  --z-popover: 1400; /* 팝오버 · 툴팁 (모달 위에도 뜰 수 있음) */
+  --z-toast: 1500; /* 토스트 · 알림 (항상 최상단) */
+}
+
+/* z-index 명명 유틸리티 — @theme의 --z-* 토큰을 z-{name} 클래스로 감싼다.
+   (Tailwind 기본 z-<number>는 그대로 유효; 아래는 시맨틱 레이어 전용) */
+@utility z-base {
+  z-index: var(--z-base);
+}
+@utility z-raised {
+  z-index: var(--z-raised);
+}
+@utility z-dropdown {
+  z-index: var(--z-dropdown);
+}
+@utility z-sticky {
+  z-index: var(--z-sticky);
+}
+@utility z-overlay {
+  z-index: var(--z-overlay);
+}
+@utility z-modal {
+  z-index: var(--z-modal);
+}
+@utility z-popover {
+  z-index: var(--z-popover);
+}
+@utility z-toast {
+  z-index: var(--z-toast);
 }
 
 html,
