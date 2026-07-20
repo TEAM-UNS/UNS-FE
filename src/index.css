@@ -108,6 +108,19 @@
   --text-body-xs: 12px;
   --text-body-xs--line-height: 1.5;
   --text-body-xs--font-weight: 400;
+
+  /* ── Radius (디자인 5단계, Tailwind 기본 override) ───────────── */
+  --radius-xs: 2px;
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
+
+  /* ── Spacing ─────────────────────────────────────────────────
+     디자인은 4px 베이스 그리드(0/4/8/12/16/20/24/32/36/48).
+     Tailwind v4 기본값(--spacing: 0.25rem = 4px)과 동일하므로 별도 토큰 없이
+     기본 유틸리티를 그대로 쓴다: p-1=4 p-2=8 p-3=12 p-4=16 p-5=20 p-6=24
+     p-8=32 p-9=36 p-12=48 (gap-·m-·w-·h- 등도 동일). */
 }
 
 html,

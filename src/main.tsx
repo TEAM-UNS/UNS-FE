@@ -1,6 +1,8 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 // Pretendard 가변 폰트 자체호스팅 (외부 CDN 요청 없이 Vite가 번들)
+// TODO(perf): 전체 가변폰트(~2MB) → dynamic-subset으로 교체해 초기 로딩 최적화
+//   (import 'pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css')
 import 'pretendard/dist/web/variable/pretendardvariable.css'
 import './index.css'
 import { App } from '@/app/App'
