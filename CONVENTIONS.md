@@ -93,6 +93,14 @@ features/<name>/
 - 스토어(상태)와 hooks(뮤테이션·재사용 로직)를 **세그먼트로 분리**한다 — 성격이 다르므로.
 - 외부는 세그먼트 배럴로만 접근한다 (`../api`, `../types`). 개별 파일 직접 import 금지.
 
+### 컴포넌트 variant vs 상태 (디자인 시스템)
+
+- **구조적 변형만 prop**으로 만든다: `variant`(예: primary/ghost/outline), `size`(md/sm), `type`, `checked`.
+- **상호작용 상태는 prop이 아니라 CSS로** 처리한다: hover/pressed/disabled/focus →
+  Tailwind `hover:`·`active:`·`disabled:`·`focus-visible:`. ⚠️ `state="hover"` 같은 상태 prop 금지.
+- Figma에 상태가 variant로 그려져 있어도 코드에선 CSS 상태로 옮긴다.
+  (Figma 한글 축 → prop 매핑은 [docs/FIGMA-WORKFLOW.md](./docs/FIGMA-WORKFLOW.md) §5.1)
+
 ## 5. feature 공개 API (barrel)
 
 - 각 feature는 루트 `index.ts`로 **공개할 것만** 노출한다.
